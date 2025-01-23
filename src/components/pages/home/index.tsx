@@ -1,6 +1,6 @@
-
-
 // sections
+import BlogsPost from "./sections/BlogsPost";
+import VideoSection from "./sections/VideoSection";
 import CompanyProfile from "./sections/CompanyProfile";
 import ContactBanner from "./sections/ContactBanner";
 import ContactFixedBanner from "./sections/ContactFixedBanner";
@@ -13,26 +13,30 @@ import PurchaseProcess from "./sections/PurchaseProcess";
 import PurchaseResults from "./sections/PurchaseResults";
 import ReviewsReceived from "./sections/ReviewsReceived";
 import WhyChoose from "./sections/WhyChoose";
+import BusinessPolicy from "./sections/BusinessPolicy";
 
 const Index = () => {
-    return (
-        <>
-            <Hero />
-            <ContactFixedBanner />
-            <Flow />
-            <WhyChoose />
-            <ContactBanner />
-            <PurchasedItems />
-            <PurchaseResults />
-            <PurchaseProcess />
-            <ContactBanner />
-            <ReviewsReceived />
-            <FrequentlyAskedQuestions />
-            <ContactBanner />
-            <CompanyProfile />
-            <Inquiry />
-        </>
-    )
+  return (
+    <>
+      <Hero />
+      <ContactFixedBanner />
+      <Flow />
+      <WhyChoose />
+      <VideoSection />
+      <BlogsPost />
+      <ContactBanner />
+      <PurchasedItems />
+      <PurchaseResults />
+      <PurchaseProcess />
+      <BusinessPolicy />
+      <ContactBanner />
+      <ReviewsReceived />
+      <FrequentlyAskedQuestions />
+      <ContactBanner />
+      <CompanyProfile />
+      <Inquiry />
+    </>
+  );
 };
 
 export default Index;
