@@ -1,42 +1,45 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
 
-const baseUrl = "https://hadis-three.vercel.app"
+// blogs data
+import blogsData from "@/content/blogs/blogs.json";
+
+// baseUrl
+import { baseUrl } from '@/utils/baseUrl';
+
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
+    // Static URLs
+    const staticUrls: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}`,
-            lastModified: new Date(),
-            changeFrequency: 'daily',
-            priority: 1,
-        }
-    ]
+            url: baseUrl,
+            lastModified: new Date().toISOString(),
+            changeFrequency: "daily",
+            priority: 1.0,
+        },
+        {
+            url: `${baseUrl}/blogs`,
+            lastModified: new Date().toISOString(),
+            changeFrequency: "daily",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/satei`,
+            lastModified: new Date().toISOString(),
+            changeFrequency: "daily",
+            priority: 0.8,
+        },
+    ];
+
+    // Dynamic Blog URLs
+    const dynamicBlogUrls: MetadataRoute.Sitemap = blogsData.map((blog) => ({
+        url: `${baseUrl}/blogs/${encodeURIComponent(blog.title)}`,
+        lastModified: new Date().toISOString(), // Use actual lastModified if available
+        changeFrequency: "weekly",
+        priority: 0.7,
+    }));
+
+    return [
+        ...staticUrls,
+        ...dynamicBlogUrls,
+    ];
 }
-
-
-
-// import { BASE_URL } from '@/app/lib/constants'
-
-// export async function generateSitemaps() {
-//     /* Fetch the total number of products 
-//     and calculate the number of sitemaps needed
-//     */
-//     return [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]
-// }
-
-// export default async function sitemap({
-//     id,
-// }: {
-//     id: number
-// }): Promise<MetadataRoute.Sitemap> {
-//     // Google's limit is 50,000 URLs per sitemap
-//     const start = id * 50000
-//     const end = start + 50000
-//     const products = await getProducts(
-//         `SELECT id, date FROM products WHERE id BETWEEN ${start} AND ${end}`
-//     )
-//     return products.map((product) => ({
-//         url: `${BASE_URL}/product/${product.id}`,
-//         lastModified: product.date,
-//     }))
-// }
