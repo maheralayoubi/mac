@@ -12,7 +12,10 @@
     "@emailjs/browser": "^4.4.1",
     "@next/third-parties": "^15.1.6",
     "next": "^15.1.6",
+<<<<<<< HEAD
     "nodemailer": "^6.10.0",
+=======
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sweetalert2": "^11.15.10",

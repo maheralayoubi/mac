@@ -14,6 +14,7 @@ const BlogsPost = () => {
       </h2>
       {/* boxes */}
       <div className="gap-8 flex flex-wrap justify-center">
+<<<<<<< HEAD
         {data
           .slice(-3)
           .reverse()
@@ -34,6 +35,20 @@ const BlogsPost = () => {
           すべてみる
         </Link>
       </div>
+=======
+        {data.slice(-3).reverse().map((blog) => (
+          <PostCard
+            key={blog.id}
+            title={blog.title}
+            imageSrc={blog.imageSrc}
+            description={blog.description}
+          />
+        ))}
+      </div>
+      <Link href="/blogs" className="mt-[24px] md:mt-[35px] lg:mt-[40px] mx-auto py-[12px] w-[90%] md:w-[50%] lg:w-[27%] text-[24px] lg:text-[28px] leading-[36px] lg:leading-[42px] font-black text-white gradient-red rounded text-center block">
+        すべてみる
+      </Link>
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
     </section>
   );
 };

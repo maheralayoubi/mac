@@ -14,6 +14,7 @@ const Inquiry = () => {
     handleInputChange,
     handleImageChange,
     handleSubmit,
+<<<<<<< HEAD
     addProduct,
     deleteProduct,
     handleProductInputChange
@@ -22,13 +23,20 @@ const Inquiry = () => {
   const numberOfProduct = 3
 
 
+=======
+  } = useFormHandler();
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
   return (
     <section id="inquiry" className="py-[50px] lg:py-[60px] px-[20px] lg:px-0 bg-[url(/images/home-page/dot-bg-results.svg)] bg-auto font-noto">
       <h2 className="mb-[40px] md:mb-[42px] lg:mb-[50px] text-[30px] md:text-[40px] lg:text-[60px] leading-[45px] md:leading-[60px] lg:leading-[90px] font-black bg-gradient-to-r from-light-red to-dark-red bg-clip-text text-transparent text-center">
         お問い合わせ
       </h2>
       <form
+<<<<<<< HEAD
         className="space-y-6 max-w-[900px] md:mx-auto"
+=======
+        className="space-y-6 md:w-[60%] lg:w-[40%] md:mx-auto"
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
         onSubmit={handleSubmit}
       >
         {/* Input Fields */}
@@ -113,11 +121,19 @@ const Inquiry = () => {
         <SelectField
           id="city"
           name="city"
+<<<<<<< HEAD
           label="都道府県"
           required
           value={formData.city}
           options={[
             { value: "not_selected", label: "選択してください" },
+=======
+          label="市区町村"
+          required
+          value={formData.city}
+          options={[
+            { value: "not_selected", label: "未選択" },
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
             { value: "hokkaido", label: "北海道" },
             { value: "aomori", label: "青森県" },
             { value: "iwate", label: "岩手県" },
@@ -192,6 +208,7 @@ const Inquiry = () => {
             { value: "ad", label: "広告" },
           ]}
         /> */}
+<<<<<<< HEAD
 
         {/* products list */}
         {formData.productsList.map((item, index) =>
@@ -255,12 +272,47 @@ const Inquiry = () => {
         {/* add product btn */}
         {formData.productsList.length < numberOfProduct && <button type="button" onClick={addProduct}>＋商品追加</button>}
 
+=======
+        <InputField
+          id="productDetails"
+          name="product_details"
+          label="査定希望商品のメーカー名、型番"
+          placeholder="(例:リョービ電ノコ(ASK-1000)動作)"
+          required
+          value={formData.product_details}
+          onChange={handleInputChange}
+        />
+        <SelectField
+          id="productCondition"
+          name="product_condition"
+          label="状態を選択してください"
+          required={false}
+          value={formData.product_condition}
+          onChange={handleInputChange}
+          options={[
+            { value: "scrap", label: "00 スクラップ" },
+            { value: "used", label: "01 中古" },
+            { value: "new", label: "02 新品" },
+          ]}
+        />
+
+        {/* Image Upload */}
+        <ImageUpload
+          label="買取商品の写真があればこちらに添付してください。"
+          setImage={handleImageChange}
+          image={formData.image}
+        />
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
 
         {/* Textarea */}
         <textarea
           id="additionalNotes"
           name="additional_notes"
           placeholder="ご質問やご連絡事項はこちらにお願いします"
+<<<<<<< HEAD
+=======
+          required
+>>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
           value={formData.additional_notes}
           className="py-[9px] px-[16px] w-full h-[100px] border-[1px] border-[#D1D5DB] rounded-md text-[14px] leading-[23px] font-normal"
           onChange={handleInputChange}
