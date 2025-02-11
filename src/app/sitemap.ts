@@ -23,11 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
-<<<<<<< HEAD
             url: `${baseUrl}/satei`,
-=======
-            url: `${baseUrl}/owen-ihe-wase`,
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
             lastModified: new Date().toISOString(),
             changeFrequency: "daily",
             priority: 0.8,

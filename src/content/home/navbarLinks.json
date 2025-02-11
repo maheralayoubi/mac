@@ -57,7 +57,6 @@
       "name": "youtube",
       "iconSrc": "/images/icons/youtube-colored.svg",
       "href": "https://www.youtube.com/channel/UCuUeHnzcpEYr_3mxwzTHSLQ"
-<<<<<<< HEAD
     },
     {
       "id": "5",
@@ -67,8 +66,3 @@
     }
   ]
 }
-=======
-    }
-  ]
-}
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8

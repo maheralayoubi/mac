@@ -39,13 +39,9 @@ export async function generateMetadata({ params }: IBlogPage): Promise<Metadata>
         url: `${baseUrl}/blogs/${data?.title}`,
         title: data?.title,
         description: data?.description,
-        siteName: "mac-hadis",
+        siteName: "機械工具買取ハディズ",
         images: [
-<<<<<<< HEAD
           { url: `${baseUrl}${data?.imageSrc}` }
-=======
-          { url: data?.imageSrc }
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
         ]
       },
 
@@ -53,11 +49,7 @@ export async function generateMetadata({ params }: IBlogPage): Promise<Metadata>
         card: "summary_large_image",
         title: data?.title,
         description: data?.description,
-<<<<<<< HEAD
         images: `${baseUrl}${data?.imageSrc}`
-=======
-        images: data?.imageSrc
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
       },
       alternates: {
         canonical: `${baseUrl}/blogs/${data?.title}`

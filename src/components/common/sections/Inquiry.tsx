@@ -14,29 +14,29 @@ const Inquiry = () => {
     handleInputChange,
     handleImageChange,
     handleSubmit,
-<<<<<<< HEAD
     addProduct,
     deleteProduct,
-    handleProductInputChange
+    handleProductInputChange,
   } = useFormHandler();
 
-  const numberOfProduct = 3
+  const numberOfProduct = 3;
 
-
-=======
-  } = useFormHandler();
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
   return (
-    <section id="inquiry" className="py-[50px] lg:py-[60px] px-[20px] lg:px-0 bg-[url(/images/home-page/dot-bg-results.svg)] bg-auto font-noto">
-      <h2 className="mb-[40px] md:mb-[42px] lg:mb-[50px] text-[30px] md:text-[40px] lg:text-[60px] leading-[45px] md:leading-[60px] lg:leading-[90px] font-black bg-gradient-to-r from-light-red to-dark-red bg-clip-text text-transparent text-center">
-        お問い合わせ
-      </h2>
+    <section
+      id="inquiry"
+      className="py-[50px] lg:py-[60px] px-[20px] lg:px-0 bg-[url(/images/home-page/dot-bg-results.svg)] bg-auto font-noto"
+    >
+      <div>
+        <h2 className="text-[30px] md:text-[40px] lg:text-[60px] leading-[45px] md:leading-[60px] lg:leading-[90px] font-black bg-gradient-to-r from-light-red to-dark-red bg-clip-text text-transparent text-center">
+          お問い合わせ
+        </h2>
+        <p className="mb-10 md:mb-12 lg:mb-14 mt-2 lg:mt-5 text-center text-xs lg:text-sm font-medium text-gray-700">
+          <span className="text-red-600 pr-1 text-lg">*</span>
+          営業目的での利用はお断りします
+        </p>
+      </div>
       <form
-<<<<<<< HEAD
         className="space-y-6 max-w-[900px] md:mx-auto"
-=======
-        className="space-y-6 md:w-[60%] lg:w-[40%] md:mx-auto"
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
         onSubmit={handleSubmit}
       >
         {/* Input Fields */}
@@ -121,19 +121,11 @@ const Inquiry = () => {
         <SelectField
           id="city"
           name="city"
-<<<<<<< HEAD
           label="都道府県"
           required
           value={formData.city}
           options={[
             { value: "not_selected", label: "選択してください" },
-=======
-          label="市区町村"
-          required
-          value={formData.city}
-          options={[
-            { value: "not_selected", label: "未選択" },
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
             { value: "hokkaido", label: "北海道" },
             { value: "aomori", label: "青森県" },
             { value: "iwate", label: "岩手県" },
@@ -184,37 +176,19 @@ const Inquiry = () => {
           ]}
           onChange={handleInputChange}
         />
-
-
         <InputField
           id="productInfo"
           name="product_info"
           label="市区町村"
           placeholder="未入力"
-          required
+          required={false}
           value={formData.product_info}
           onChange={handleInputChange}
         />
-        {/* <SelectField
-          id="inquirySource"
-          name="inquiry_source"
-          required={false}
-          label="私たちをどこで知りましたか？"
-          value={formData.inquiry_source}
-          onChange={handleInputChange}
-          options={[
-            { value: "none", label: "---" },
-            { value: "web", label: "ウェブ検索" },
-            { value: "ad", label: "広告" },
-          ]}
-        /> */}
-<<<<<<< HEAD
-
         {/* products list */}
-        {formData.productsList.map((item, index) =>
+        {formData.productsList.map((item, index) => (
           <div key={index} className="bg-[#fcf7f7] px-1 py-2 border">
-
-            {index !== 0 &&
+            {index !== 0 && (
               <button
                 type="button"
                 onClick={() => deleteProduct(index)}
@@ -228,7 +202,7 @@ const Inquiry = () => {
                   height={11}
                 />
               </button>
-            }
+            )}
 
             <InputField
               id={`productDetails-${index}`}
@@ -243,7 +217,7 @@ const Inquiry = () => {
               id={`productCondition-${index}`}
               name="product_condition"
               label="状態を選択してください"
-              required={false}
+              required={true}
               value={item.product_condition}
               onChange={(e) => handleProductInputChange(e, index)}
               options={[
@@ -257,7 +231,6 @@ const Inquiry = () => {
                 { value: "scrap", label: "スクラップ" },
               ]}
             />
-
             {/* Image Upload */}
             <ImageUpload
               label="買取商品の写真があればこちらに添付してください。"
@@ -266,61 +239,31 @@ const Inquiry = () => {
               productIndex={index}
             />
           </div>
-        )}
-
+        ))}
 
         {/* add product btn */}
-        {formData.productsList.length < numberOfProduct && <button type="button" onClick={addProduct}>＋商品追加</button>}
-
-=======
-        <InputField
-          id="productDetails"
-          name="product_details"
-          label="査定希望商品のメーカー名、型番"
-          placeholder="(例:リョービ電ノコ(ASK-1000)動作)"
-          required
-          value={formData.product_details}
-          onChange={handleInputChange}
-        />
-        <SelectField
-          id="productCondition"
-          name="product_condition"
-          label="状態を選択してください"
-          required={false}
-          value={formData.product_condition}
-          onChange={handleInputChange}
-          options={[
-            { value: "scrap", label: "00 スクラップ" },
-            { value: "used", label: "01 中古" },
-            { value: "new", label: "02 新品" },
-          ]}
-        />
-
-        {/* Image Upload */}
-        <ImageUpload
-          label="買取商品の写真があればこちらに添付してください。"
-          setImage={handleImageChange}
-          image={formData.image}
-        />
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
+        {formData.productsList.length < numberOfProduct && (
+          <button type="button" onClick={addProduct}>
+            ＋商品追加
+          </button>
+        )}
 
         {/* Textarea */}
         <textarea
           id="additionalNotes"
           name="additional_notes"
           placeholder="ご質問やご連絡事項はこちらにお願いします"
-<<<<<<< HEAD
-=======
-          required
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
           value={formData.additional_notes}
           className="py-[9px] px-[16px] w-full h-[100px] border-[1px] border-[#D1D5DB] rounded-md text-[14px] leading-[23px] font-normal"
           onChange={handleInputChange}
         />
 
         <button
+        disabled={isSubmitting}
           type="submit"
-          className="w-[90%] lg:w-[60%] py-[12px] mx-auto text-[24px] leading-[36px] text-center text-white font-black rounded flex items-start justify-center gap-x-4 gradient-red"
+          className={`w-[90%] lg:w-[60%] py-[12px] mx-auto text-[24px] leading-[36px] 
+            text-center text-white font-black rounded flex items-start justify-center 
+            gap-x-4 gradient-red ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
         >
           {isSubmitting === true ? (
             "送信..."

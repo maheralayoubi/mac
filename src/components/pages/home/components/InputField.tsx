@@ -5,11 +5,7 @@ interface IInputFieldProps {
   placeholder: string;
   required: boolean;
   value: string;
-<<<<<<< HEAD
   onChange: (e: React.ChangeEvent<HTMLInputElement>, index?: number) => void;
-=======
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
->>>>>>> 312c5a7969d21a7705b302b56dbbbc95e21be4c8
 }
 
 const InputField = ({
