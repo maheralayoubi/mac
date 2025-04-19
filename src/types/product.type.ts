@@ -5,15 +5,28 @@ export type TProduct = {
   title: string;
   category: string;
   subTitle: string;
+  servicesTitle: string,
+  servicesDescription: string;
   description: string;
+  dismantling: TService
+  transportation: TService
+  whyChooseUs: TService
   kinds: string[];
   merit: string[];
   tips: string[];
-  imagesGallery: TImage[]
+  purchaseeProductTitle: string;
+  cameraImagesGallery: TImage[]
+  webImagesGallery: TImage[]
   makers: TMaker[]
 }
 
 export type TImage = {
   title: string,
   imageSrc: string
+}
+
+export type TService = {
+  title: string;
+  icon: string;
+  content: string[];
 }
