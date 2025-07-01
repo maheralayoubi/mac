@@ -1,26 +1,36 @@
 "use client";
 import { useState } from "react";
-import { TQuestion } from "@/types/product.type";
-import QuestionCard from "./QuestionCard";
+import Head from "next/head";
+import { TService } from "@/types/product.type";
+import ServiceCard from "./ServiceCard";
 
 interface IPurchaseServicesProps {
   servicesTitle: string;
   servicesDescription: string;
-  questions: TQuestion[]
+  dismantling: TService;
+  transportation: TService;
+  whyChooseUs: TService;
 }
 
 const PurchaseServices = ({
   servicesTitle,
   servicesDescription,
-  questions
+  dismantling,
+  transportation,
+  whyChooseUs,
 }: IPurchaseServicesProps) => {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
   const toggleAccordion = (index: number) => {
     setOpenAccordion(openAccordion === index ? null : index);
   };
 
+  const services = [dismantling, transportation, whyChooseUs];
+
   return (
     <>
+      <Head>
+        <title>中古油圧式カーリフト買取サービス | ハディズ</title>
+      </Head>
       <main className="bg-gray-50 text-gray-900">
         <section className="max-w-4xl mx-auto py-12 px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#B81122] mb-8">
@@ -34,15 +44,12 @@ const PurchaseServices = ({
               </span>
             ))}
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#B81122] mb-8">
-            よくあるご質問
-          </h2>
           <div className="space-y-4">
-            {questions.map((question) => (
-              <QuestionCard
-                index={question.id}
-                key={question.id}
-                question={question}
+            {services.map((service, index) => (
+              <ServiceCard
+                index={index}
+                key={index}
+                service={service}
                 openAccordion={openAccordion}
                 toggleAccordion={toggleAccordion}
               />

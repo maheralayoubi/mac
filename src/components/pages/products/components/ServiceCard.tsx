@@ -1,19 +1,19 @@
-import { TQuestion } from "@/types/product.type";
+import { TService } from "@/types/product.type";
 import Image from "next/image";
 
-interface IQuestionCardProps {
-  question: TQuestion;
+interface IServiceCardProps {
+  service: TService;
   index: number;
   openAccordion: number | null;
   toggleAccordion: (index: number) => void;
 }
 
-const QuestionCard = ({
-  question,
+const ServiceCard = ({
+  service,
   index,
   openAccordion,
   toggleAccordion,
-}: IQuestionCardProps) => {
+}: IServiceCardProps) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
       <button
@@ -22,15 +22,10 @@ const QuestionCard = ({
         aria-expanded={openAccordion === index}
         aria-controls={`accordion-content-${index}`}
       >
-        <div className="flex items-center gap-x-5">
-          <Image
-            src="https://mac-hadis.s3.ap-northeast-1.amazonaws.com/icons/question-icon.png"
-            alt="question-icon"
-            width={30}
-            height={30}
-          />
+        <div className="flex items-center">
+          <span className="text-2xl mr-3">{service.icon}</span>
           <span className="text-lg sm:text-xl font-semibold text-gray-800">
-            {question.question}
+            {service.title}
           </span>
         </div>
         <span className="text-[#B81122] text-xl">
@@ -42,19 +37,24 @@ const QuestionCard = ({
           id={`accordion-content-${index}`}
           className="p-4 bg-white transition-all duration-300"
         >
-          <div className="flex items-center gap-x-5">
-            <Image
-              src="https://mac-hadis.s3.ap-northeast-1.amazonaws.com/icons/answer-icon.png"
-              alt="answer-icon"
-              width={30}
-              height={30}
-            />
-            <p>{question.answer}</p>
-          </div>
+          <ul className="space-y-3">
+            {service.content.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-x-2">
+                <Image
+                  src="https://mac-hadis.s3.ap-northeast-1.amazonaws.com/icons/red-correct.svg"
+                  width={20}
+                  height={20}
+                  loading="eager"
+                  alt="red-correct"
+                />
+                <span className="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
   );
 };
 
-export default QuestionCard;
+export default ServiceCard;

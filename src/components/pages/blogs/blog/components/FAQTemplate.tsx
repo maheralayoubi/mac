@@ -20,7 +20,7 @@ const FAQTemplate: React.FC<IFAQTemplate> = ({ content }) => {
           </h3>
           <p className="font-normal text-base leading-8">
             <span className="font-black">A{item.id}:</span>
-            <span dangerouslySetInnerHTML={{ __html: item.answer }} />
+            {item.answer}
           </p>
         </div>
       ))}
